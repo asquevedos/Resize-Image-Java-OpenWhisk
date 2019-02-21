@@ -17,11 +17,11 @@ public class JavaResize {
     	int newW=0;
     	int newH=0;
     	if (args.has("img"))
-            img = args.getAsJsonPrimitive("img").getAsString();
+            img = args.getAsJsonPrimitive("img").getAsString();    //img parameter, which receives the image in BASE64 format
     	if (args.has("w"))
-    		newW = args.getAsJsonPrimitive("w").getAsInt();
+    		newW = args.getAsJsonPrimitive("w").getAsInt();    // w parameter, new Width Image size 
     	if (args.has("h"))
-    		newH = args.getAsJsonPrimitive("h").getAsInt();
+    		newH = args.getAsJsonPrimitive("h").getAsInt();    // h parameter, new High Image size 
     	JsonObject response = new JsonObject();
     	try {
     	String base64String = img;
@@ -35,7 +35,7 @@ public class JavaResize {
     	}catch(Exception e){
     		response.addProperty("image", "error");
     	}
-        return response;
+        return response;         // return new BASE64 Image 
     }
     
 	public byte[] convertToImg(String base64) throws IOException {
